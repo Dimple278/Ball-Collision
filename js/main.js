@@ -17,8 +17,8 @@ for (let i = 0; i < BALL_COUNT; i++) {
 }
 
 //Animation loop
-function play() {
-  window.requestAnimationFrame(play);
+function animate() {
+  window.requestAnimationFrame(animate);
   ballArray.forEach((ball, index) => {
     ball.checkWallCollision(boxBoundary);
     for (let j = index + 1; j < ballArray.length; j++) {
@@ -27,7 +27,7 @@ function play() {
     ball.move();
   });
 }
-play();
+animate();
 
 // Add more balls on click
 boxContainer.addEventListener("click", (e) => {
