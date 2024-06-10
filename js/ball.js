@@ -31,16 +31,30 @@ class Ball {
   }
 
   checkWallCollision(boxBoundary) {
-    if (
-      this.x <= boxBoundary.left ||
-      this.x + this.diameter >= boxBoundary.width
-    ) {
+    // if (
+    //   this.x <= boxBoundary.left ||
+    //   this.x + this.diameter >= boxBoundary.width
+    // ) {
+    //   this.sx *= -1;
+    // }
+    // if (
+    //   this.y <= boxBoundary.top ||
+    //   this.y + this.diameter >= boxBoundary.height
+    // ) {
+    //   this.sy *= -1;
+    // }
+    if (this.x < boxBoundary.left) {
+      this.x = boxBoundary.left;
+      this.sx *= -1;
+    } else if (this.x + this.diameter >= boxBoundary.width) {
+      this.x = boxBoundary.width - this.diameter;
       this.sx *= -1;
     }
-    if (
-      this.y <= boxBoundary.top ||
-      this.y + this.diameter >= boxBoundary.height
-    ) {
+    if (this.y < boxBoundary.top) {
+      this.y = boxBoundary.top;
+      this.sy *= -1;
+    } else if (this.y + this.diameter >= boxBoundary.height) {
+      this.y = boxBoundary.height - this.diameter;
       this.sy *= -1;
     }
   }
